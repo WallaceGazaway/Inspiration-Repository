@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Project 1: Sources of Inspiration</title>
+	<style type="text/css">
+		<!--
+		div {width:300px; height:200px; border:1px solid #aaa; text-align:center; background-color: #eee;}
+		div#wrapper {position:absolute; top:100px; left:20px; width:1620px; height:460px;}
+		div#th1 { position:absolute; top:20px; left:20px;}
+		div#th2 { position:absolute; top:20px; left:340px;}
+		div#th3 { position:absolute; top:20px; left:660px;}
+		div#th4 { position:absolute; top:20px; left:980px;}
+		div#th5 { position:absolute; top:20px; left:1300px; background:url(images/landoflustrous/index.jpg) no-repeat center;}
+		div#th6 { position:absolute; top:240px; left:20px; background:url(images/madeinabyss/index.jpg) no-repeat center;}
+		div#th7 { position:absolute; top:240px; left:340px; background:url(images/nier/index.jpg) no-repeat center;}
+		div#th8 { position:absolute; top:240px; left:660px; background:url(images/overlord/index.jpg) no-repeat center;}
+        div#th9 { position:absolute; top:240px; left:980px; background:url(images/poe/index.jpg) no-repeat center;}
+        div#th10 { position:absolute; top:240px; left:1300px; background:url(images/xenogears/index.jpg) no-repeat center;}
+
+		#instruct {
+			position: absolute;
+			width: 500px;
+			height: 200px;
+			top: -300px;
+			left: 700px;
+			background-color: #ffffff;
+			padding: 20px;
+			border: 1px solid black;
+		}
+		#instruct.fixed {
+			position: fixed;
+		}
+		-->
+	</style>
+</head>
+
+<body>
+    <h1>Sources for Inspiration - A Collection of Series to Inspire Ideas in Various Ways</h1>
+	<!-- Placeholder. CSS and JQUERY do the rest, since all have id -->
+	<div id="wrapper">
+		<div id="th1">
+			<a href="bloodborne.html">
+				<img src="images/bloodborne/index.jpg" alt="Click here to go to Bloodborne Page">
+			</a>
+        </div>
+		<div id="th2">
+			<a href="control.html">
+				<img src="images/control/index.png" alt="Click here to go to Control Page">
+			</a>
+		</div>
+		<div id="th3">
+			<a href="ergoproxy.html">
+				<img src="images/ergoproxy/index.jpg" alt="Click here to go to Ergo Proxy Page">
+			</a>
+        </div>
+		<div id="th4">
+			<a href="ff12.html">
+				<img src="images/fftwelve/index.png" alt="Click here to go to Final Fantasy 12 Page">
+			</a>
+        </div>
+		<div id="th5">
+			<a href="landoflustrous.html">
+				<img src="images/landoflustrous/index.jpg" alt="Click here to go to Land of the Lustrous Page">
+			</a>
+        </div>
+		<div id="th6">
+			<a href="madeinabyss.html">
+				<img src="images/madeinabyss/index.jpg" alt="Click here to go to Made in Abyss Page">
+			</a>
+        </div>
+		<div id="th7">
+			<a href="nier.html">
+				<img src="images/nier/index.jpg" alt="Click here to go to Nier Page">
+			</a>
+        </div>
+		<div id="th8">
+			<a href="overlord.html">
+				<img src="images/overlord/index.jpg" alt="Click here to go to Overlord Page">
+			</a>
+        </div>
+		<div id="th9">
+			<a href="poe.html">
+				<img src="images/poe/index.jpg" alt="Click here to go to Pillars of Eternity Page">
+			</a>
+        </div>
+        <div id="th10">
+			<a href="xenogears.html">
+				<img src="images/xenogears/index.jpg" alt="Click here to go to Xenogears Page">
+			</a>
+        </div>
+	</div>
+
+	<div id="instruct">Navigation Instructions<br/><br/>Here is a list of sources from which I borrow ideas and elements, whether intentional or not. Selecting one moves to a new page with a scrolling box containing several examples from the source, as well as an explanation of what I thought they did well and why I put them here<br/><br/>Though not related to web development, I think some of what these series did well or the mechanics they created is worth mentioning<br/><br/><a href="#">Close</a></div>
+	
+	<!-- Finds the JQUERY copy file -->
+	<script src="js/jquery-3.6.1.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			//This is what is rounding the corners using JQUERY in place of CSS;
+			$("div").css("border-radius", "15px");
+			$("div").css("moz-border-radius", "15px");
+			$("[src$='.jpg']").css("border-radius", "15px");
+			$("[src$='.jpg']").css("moz-border-radius", "15px");
+			$("[src$='.png']").css("border-radius", "15px");
+			$("[src$='.png']").css("moz-border-radius", "15px");
+		
+			$("div[id!='wrapper']").animate({"opacity" : .6}).hover(function() {
+				//Occurs when cursor is hovering over pic
+				$(this).animate({"opacity" : 1});
+			}, function() {
+				//This happens when not over pic
+				$(this).animate({"opacity" : .6});
+			//Replacing Clicky bit with linking and referencing via javascript in place of html in event run into issues.
+			})//.click(function(){
+				//$("#th3").css("display","none");
+			//}
+			//);
+			$("div[id='th1']").click(function(){
+				
+			}
+			);
+
+
+			$("#instruct").animate({
+				top:"+=900"
+			}, 2000); 
+			
+			$("#instruct").addClass("fixed");
+			
+
+			$("a").click(function(event){
+				
+				$("#instruct").css("top", "-300px");
+			}); 
+		});
+	</script>
+</body>
+</html>

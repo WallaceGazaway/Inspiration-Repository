@@ -1,0 +1,234 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Final Fantasy 12</title>
+	<link href="css/ff12.css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+
+<h1>Diverse Beyond-Border Worldbuilding and Deeper Politics and Play-like Writing - Final Fantasy 12</h1>
+
+<p>
+	Looking back on it, I feel like the twelfth installment in the Final Fantasy series, despite mixed views by fans, has one of the most interesting settings and writing. The story is more focused on the world around them than the characters themselves, and the dialogue is written similarly to a Shakespearean play. Despite the gameplay having aged poorly, it was amazing seeing what for its time was close to open world exploration, and the designs of the creatures living in the biomes are all still very interesting to me. 
+</p>
+	
+	<div id="page">
+		<div id="main-content">
+			<section id="home">
+				<div id="container" class="container">
+					<div class="image_wrapper">
+						<img id="pic1" src="images/fftwelve/1.jpg" alt=""/>
+						<img id="pic2" src="images/fftwelve/2.jpg" alt=""/>
+						<img id="pic3" src="images/fftwelve/3.jpg" alt=""/>
+						<img id="pic4" src="images/fftwelve/4.jpg" alt=""/>
+						<img id="pic5" src="images/fftwelve/5.jpg" alt=""/>
+						<img id="pic6" src="images/fftwelve/6.png" alt=""/>
+						<img id="pic7" src="images/fftwelve/7.jpg" alt=""/>
+						<img id="pic8" src="images/fftwelve/8.jpg" alt=""/>
+					</div> <!-- IMAGE WRAPPER -->
+					
+					<div class="next"></div>
+					<div class="prev"></div>
+					
+					<ul class="nav">
+						<li id="nav1" class="selected"><a class="thumbnav" href="images/fftwelve/1.jpg" rel="images/fftwelve/thumbs/1.jpg">Image 1</a></li>
+						<li id="nav2"><a class="thumbnav" href="images/fftwelve/2.jpg" rel="images/fftwelve/thumbs/2.jpg">Image2</a></li>
+						<li id="nav3"><a class="thumbnav" href="images/fftwelve/3.jpg" rel="images/fftwelve/thumbs/3.jpg">Image3</a></li>
+						<li id="nav4"><a class="thumbnav" href="images/fftwelve/4.jpg" rel="images/fftwelve/thumbs/4.jpg">Image4</a></li>
+						<li id="nav5"><a class="thumbnav" href="images/fftwelve/5.jpg" rel="images/fftwelve/thumbs/5.jpg">Image5</a></li>
+						<li id="nav6"><a class="thumbnav" href="images/fftwelve/6.png" rel="images/fftwelve/thumbs/6.jpg">Image6</a></li>
+						<li id="nav7"><a class="thumbnav" href="images/fftwelve/7.jpg" rel="images/fftwelve/thumbs/7.jpg">Image7</a></li>
+						<li id="nav7"><a class="thumbnav" href="images/fftwelve/8.jpg" rel="images/fftwelve/thumbs/8.jpg">Image8</a></li>
+						<li class="preview">
+							<div class="preview_wrapper">
+								<!--THUMNAILS-->
+							</div>
+							<!--NAV TRIANGLE-->
+							<span></span>
+						</li>
+					</ul>
+				</div> <!--CONTAINER-->
+			</section>
+		</div> <!--MAIN CONTENT-->
+	</div> <!-- PAGE-->
+
+
+	<br/>
+	<br/>
+
+	<div id="indexReturn"> 
+		<a href="index.html">
+			<img src="images/12returnButton.jpg" alt="Click here to return to Previous Page">
+		</a>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-3.6.1.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(e) {
+			var counter = 1;
+			
+			//THUMB DISPLAY
+			$("li").animate().hover(function(){
+				$("li.preview").css("display", "block");
+			}, 
+			function(){
+				$("li.preview").css("display", "none");
+			}); //END THUMB ROLLOVER
+			
+			//PLACE THUMNAIL IN BOX
+			$("a.thumbnav").hover(function(e){
+				var rel = $(this).attr("rel");
+				$("div.preview_wrapper").css("background", "url(" + rel + ") no-repeat center");
+			});
+			
+			var sign = "";
+			var imgNum = 0;
+			var move = 0;
+			
+			$("a.thumbnav").click(function(event){
+				event.preventDefault();
+				
+				var ref = $(this).attr("href");
+				
+				if( ref.indexOf("1") != -1 )
+					imgNum = 1;
+				else if( ref.indexOf("2") != -1 )
+					imgNum = 2;
+				else if( ref.indexOf("3") != -1 )
+					imgNum = 3;
+				else if( ref.indexOf("4") != -1 )
+					imgNum = 4;
+				else if( ref.indexOf("5") != -1 )
+					imgNum = 5;
+				else if( ref.indexOf("6") != -1 )
+					imgNum = 6;
+				else if( ref.indexOf("7") != -1 )
+					imgNum = 7;
+				else if( ref.indexOf("8") != -1 )
+					imgNum = 8;
+				
+				//HOW FAR IMAGES MOVE
+				//BASED ON IMAGE CLICKED
+				if ( (counter-imgNum) < 0 )
+				{
+					move = (imgNum - counter)*520;
+					sign = "-=";
+				}
+				else
+				{
+					move = (counter - imgNum)*520;
+					sign = "+=";
+				}
+				
+				//IMAGE MOVEMENT
+				$("img").animate({
+					left:sign+move
+				}, 250);
+				
+				counter = imgNum;
+				
+				//REPLACING IMAGE SHOWN
+				$("li.selected").removeClass("selected");
+				$("li#nav"+imgNum).addClass("selected");
+				
+			}); //THUMBNAV CLICK
+			
+			
+			
+			
+			//MOVE THUMB IMAGE OVER THE HOVERED OVER DOT IN PICTURE LIST
+			$("li#nav1").hover(function(e){
+				$("li.preview").css("left", "-34.5px");
+			});
+			$("li#nav2").hover(function(e){
+				$("li.preview").css("left", "-14px");
+			});
+			$("li#nav3").hover(function(e){
+				$("li.preview").css("left", "5px");
+			});
+			$("li#nav4").hover(function(e){
+				$("li.preview").css("left", "24px");
+			});
+			$("li#nav5").hover(function(e){
+				$("li.preview").css("left", "43px");
+			});
+			$("li#nav6").hover(function(e){
+				$("li.preview").css("left", "62px");
+			});
+			$("li#nav7").hover(function(e){
+				$("li.preview").css("left", "81px");
+			});
+			$("li#nav8").hover(function(e){
+				$("li.preview").css("left", "100px");
+			});
+			
+			
+			//RIGHT ARROW
+			$("div.next").click(function(e){
+				if(counter == 8)
+				{
+					//BOUNDARY REACHED, RETURN TO FIRST IMAGE
+					$("img").animate({
+						left:"+=" + ((counter-1)*520)
+					}, 50);
+					
+					$("li.selected").removeClass("selected");
+					$("#nav1").addClass("selected");
+					
+					counter = 1;
+				}
+				else if(counter < 8)
+				{
+					//OTHERWISE
+					$("img").animate({
+						left:"-=520"
+					}, 250);
+					
+					$("li.selected").addClass("prevNav");
+					$("li.selected").removeClass("selected");
+					$("li.prevNav").next().addClass("selected");
+					$("li.prevNav").removeClass("prevNav");
+					
+					counter++; //COUNTER = (COUNTER + 1)
+					
+				} //ELSE IF ENDS
+			})//RIGHT ARROW ENDS
+			
+			
+			//LEFT ARROW
+			$("div.prev").click(function(e){
+				if(counter == 1)
+				{
+					//BOUNDARY REACHED, RETURN TO LAST IMAGE
+					$("img").animate({
+						left:"-=" + (7*520)
+					}, 50);
+					
+					$("li.selected").removeClass("selected");
+					$("#nav7").addClass("selected");
+					
+					counter = 8;
+				}
+				else if(counter > 1)
+				{
+					//OTHERWISE
+					$("img").animate({
+						left:"+=520"
+					}, 250);
+					
+					$("li.selected").addClass("prevNav");
+					$("li.selected").removeClass("selected");
+					$("li.prevNav").prev().addClass("selected");
+					$("li.prevNav").removeClass("prevNav");
+					
+					counter--; //COUNTER = (COUNTER - 1)
+					
+				} //ELSE IF ENDS
+			})//LEFT ARROW ENDS
+		
+		}); //END DOC
+	</script>
+</body>
+</html>
